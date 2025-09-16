@@ -1,18 +1,16 @@
+import React from 'react';
+import { MaskedCharacter } from './Masked';
 
-import React from 'react'
-import { MaskedCharacter } from './Masked'
+function Maskedpage({ text, usedLetters }) {
+  const letters = MaskedCharacter({word: text, usedLetter: usedLetters}).split('');
 
-function Maskedpage({text, usedLetters}) {
-    const letters = MaskedCharacter(text, usedLetters).split('');
-  return (  
+  return (
     <div>
-        {
-            letters.map((letter, idx) => {
-                <span key={idx}>{letter}</span>
-            })
-        }
+      {letters.map((letter, idx) => (
+        <span key={idx}>{letter}</span>
+      ))}
     </div>
-  )
+  );
 }
 
-export default Maskedpage
+export default Maskedpage;
