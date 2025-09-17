@@ -1,1 +1,47 @@
 @import "tailwindcss";
+
+body {
+    background-color: black;
+    color: aliceblue;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid orange;
+    padding: 10px;
+    border-radius: 10px;
+    width: 70%;
+    height: 70%;
+    margin: 10px;
+    font-weight: 600;
+}
+h1 {
+    color: rgb(218, 51, 84);
+    font-size: 24px;
+    padding: 12px;
+    border-bottom: 2px solid white;
+    margin-bottom: 22px;
+}
+button {
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.button-show {
+    background-color: rgb(241, 222, 11);
+    color: black;
+    display: block;
+    margin: 20px;
+    gap: 20px;
+}
+.button-hide {
+    background-color: rgb(207, 99, 17);
+    margin-bottom: 12px;
+}
+input {
+    border: 2px solid aqua;
+    display: block;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
