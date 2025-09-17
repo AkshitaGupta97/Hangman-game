@@ -1,7 +1,7 @@
 
-export function MaskedCharacter({word, usedLetter = []}) {
+export function MaskedCharacter({word='', usedLetter = []}) {
 // this function will return all the character of word that has been guessed so far
-    usedLetter = usedLetter.map(letter  => letter.toUpperCase());
+ //   usedLetter = usedLetter.map(letter  => letter.toUpperCase());
     const guessedLetter = new Set(usedLetter);
     const character = word.toUpperCase().split('').map((char) => {
         if(guessedLetter.has(char)){
@@ -9,5 +9,5 @@ export function MaskedCharacter({word, usedLetter = []}) {
         }
         return '_';
     });
-    return character.join('');
+    return character.join(' ,  ');
 }

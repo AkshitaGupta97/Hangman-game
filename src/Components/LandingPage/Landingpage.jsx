@@ -1,26 +1,34 @@
-
 import React, { useState } from 'react';
 import Maskedpage from './MaskedPage/Maskedpage';
 import LetterBtn from './Letters/LetterBtn';
-//import TextInput from '../../InputForm/TextInput';
-import TextInputContainer from '../../InputForm/TextInputContainer';
-import { Link } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Landingpage() {
-
   const [usedLetter, setUsedLetter] = useState([]);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const wordSelected = location.state?.wordSelected;
 
   const handleLetterClick = (letter) => {
-    setUsedLetter([...usedLetter, letter])
-  }
+    setUsedLetter([...usedLetter, letter]);
+  };
 
+  // Guard clause to prevent crash
+  if (!wordSelected) {
+    return (
+      <div>
+        <h1>Hangman Game</h1>
+        <p style={{ color: 'red' }}>⚠️ No word selected. Please go back and start the game.</p>
+        <button onClick={() => navigate('/')}>Go to Start</button>
+      </div>
+    );
+  }
 
   return (
     <div>
       <h1>Hangman Game</h1>
-      <TextInputContainer />
-      <Maskedpage text="humble" usedLetters={usedLetter} />
-      <LetterBtn text="humble" usedLetters={usedLetter} onLetterClick={handleLetterClick} />
+      <Maskedpage text={wordSelected} usedLetters={usedLetter} />
+      <LetterBtn text={wordSelected} usedLetters={usedLetter} onLetterClick={handleLetterClick} />
     </div>
   );
 }
